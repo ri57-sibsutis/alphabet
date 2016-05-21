@@ -13,7 +13,7 @@ int main()//aaia iacaaiey i?iecaiaeony ia aiaeeeneii oieuei
 //	printf("Aaaaeoa iacaaiea oaeea aey aaiaa no?iee:");
 //	scanf("%s", &name);
 	FILE *fp = fopen(name, "r");
-	if (fp == NULL)
+	if(fp == NULL)
 		printf("\nIoeaea: oaee iaei??aeoai\n");
 	for (j = 0; j < 260; j++) {
 		fscanf(fp, "%c", &string[j]);
