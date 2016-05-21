@@ -1,20 +1,22 @@
+#include "functions.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
 
-int main()//aaia iacaaiey i?iecaiaeony ia aiaeeeneii oieuei
+int main()//ввод названия производится на английском только
 {
 	setlocale(LC_ALL, "Rus");
-	int j = 0, size = 0, a = 0;
+	int j = 0, size = 1, a = 0;
 	char string[260];
+	char fstring[260];
 	char name[260] = "file.txt";
 	char name2[260];
-	printf("Aia?i ii?aeiaaou a i?ia?aiio Aeoaaeo.\n");
-//	printf("Aaaaeoa iacaaiea oaeea aey aaiaa no?iee:");
+	printf("Добро пожаловать в программу Алфавит.\n");
+//	printf("Введите название файла для ввода строки:");
 //	scanf("%s", &name);
 	FILE *fp = fopen(name, "r");
 	if(fp == NULL)
-		printf("\nIoeaea: oaee iaei??aeoai\n");
+		printf("\nОшибка: файл некорректен\n");
 	for (j = 0; j < 260; j++) {
 		fscanf(fp, "%c", &string[j]);
 		if (string[j] == '\n')
@@ -27,12 +29,12 @@ int main()//aaia iacaaiey i?iecaiaeony ia aiaeeeneii oieuei
 			size++;
 	}
 	char *ptr[size];
-	for (j = 0; string[j] != '\0'; j++)//a ii?yaea aic?anoaiey cia?aiey aoeau a eioiaii eiaa
-		if ((string[j] >= 'A' && string[j] <= '?') || (string[j] >= 'a' && string[j] <= 'i') || (string[j] >= '?' && string[j] <= 'y')) {
+	for (j = 0; string[j] != '\0'; j++)//в порядке возрастания значения буквы в интовом коде
+		if ((string[j] >= 'А' && string[j] <= 'Я') || (string[j] >= 'а' && string[j] <= 'п') || (string[j] >= 'р' && string[j] <= 'я')) {
 			a++;
 		}
 	printf("\n%d", a);
-	stok(string, ptr);
-	printf("\n%s\t%s", ptr[0], ptr[1]);
-	return 0;
+	crop(string, fstring);
+	stok(fstring, ptr);
+    return 0;
 }

@@ -37,3 +37,12 @@ int crop(char string[], char *fstring) {
 	fstring[i] = '\0';
 	return 1;
 }
+
+int sort(char *ptr, int size) {
+	char *mstmp;
+	char chtmp;
+	int i = 0, j = 0;
+	for (i = 0; i < size; i++) {
+	}
+	return 1;
+}
