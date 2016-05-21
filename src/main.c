@@ -15,7 +15,7 @@ int main()//ввод названия производится на английском только
 //	printf("Введите название файла для ввода строки:");
 //	scanf("%s", &name);
 	FILE *fp = fopen(name, "r");
-	if(fp == NULL)
+	if (fp == NULL)
 		printf("\nОшибка: файл некорректен\n");
 	for (j = 0; j < 260; j++) {
 		fscanf(fp, "%c", &string[j]);
@@ -33,8 +33,12 @@ int main()//ввод названия производится на английском только
 		if ((string[j] >= 'А' && string[j] <= 'Я') || (string[j] >= 'а' && string[j] <= 'п') || (string[j] >= 'р' && string[j] <= 'я')) {
 			a++;
 		}
-	printf("\n%d", a);
+	printf("\nЧисло слов:%d\n", size);
 	crop(string, fstring);
 	stok(fstring, ptr);
+	sort(ptr, size);
+	printf("Новая строка:");
+	for (j = 0; j < size; j++)
+		printf(" %s", ptr[j]);
     return 0;
 }
