@@ -38,11 +38,25 @@ int crop(char string[], char *fstring) {
 	return 1;
 }
 
-int sort(char *ptr, int size) {
+int sort(char *ptr[], int size) {
 	char *mstmp;
-	char chtmp;
+	char *mstmp2;
+	char *chtmp;
+	char *chtmp2;
 	int i = 0, j = 0;
-	for (i = 0; i < size; i++) {
+	for (i = 0; i < (size -1); ++i) {//eiee?anoai io?iuo i?ioiaia ii ianneao aey iaoi?aaiey
+		for(j = 0; j < (size - 1); ++j) {
+			mstmp = ptr[j];
+			mstmp2 = ptr[j + 1];
+			if (mstmp2[0] < mstmp[0]) {
+			//	if((mstmp[0] >= 'A' && mstmp[0] <= '?') && !(mstmp2[0] >= 'A' && mstmp2[0] <= '?')){
+				//	}
+				chtmp2 = ptr[j + 1];
+				chtmp = ptr[j];
+				ptr[j + 1] = chtmp;
+				ptr[j] = chtmp2;
+			}
+		}
 	}
 	return 1;
 }
