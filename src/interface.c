@@ -28,3 +28,12 @@ int interact (char string[]){
 	fclose(fp);	
 	return size;
 }
+
+void out (char *ptr[], int size){
+	int j = 0;
+	setlocale(LC_ALL, "Rus");
+	printf("\nКоличество слов:%d", size);
+	printf("\nВывод слов по одному:");
+	for (j = 0; j < size; j++)
+		printf("\n%s", ptr[j]);
+}
