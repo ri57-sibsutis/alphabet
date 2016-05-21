@@ -43,19 +43,34 @@ int sort(char *ptr[], int size) {
 	char *mstmp2;
 	char *chtmp;
 	char *chtmp2;
+	char A[] = "A,A,A,A,A,A,?,?,C,E,E,E,E,I,I,I,I,?,N,O,O,O,O,O,?,O,U,U,U,U,Y,?,?";
+	char a[] = "a,a,a,a,a,a,?,?,c,e,e,e,e,i,i,i,i,?,n,o,o,o,o,o,?,o,u,u,u,u,y,?,y";
 	int i = 0, j = 0;
-	for (i = 0; i < (size -1); ++i) {//eiee?anoai io?iuo i?ioiaia ii ianneao aey iaoi?aaiey
+	for (i = 0; i < (size - 1); ++i) {//eiee?anoai io?iuo i?ioiaia ii ianneao aey iaoi?aaiey
 		for(j = 0; j < (size - 1); ++j) {
 			mstmp = ptr[j];
 			mstmp2 = ptr[j + 1];
-			if (mstmp2[0] < mstmp[0]) {
-			//	if((mstmp[0] >= 'A' && mstmp[0] <= '?') && !(mstmp2[0] >= 'A' && mstmp2[0] <= '?')){
-				//	}
-				chtmp2 = ptr[j + 1];
-				chtmp = ptr[j];
-				ptr[j + 1] = chtmp;
-				ptr[j] = chtmp2;
-			}
+			if ((!(mstmp2[j] >= 'A' && mstmp2[j] <= '?') && !(mstmp[j] >= 'A' && mstmp[j] <= '?')) || ((mstmp2[j] >= 'A' && mstmp2[j] <= '?') && (mstmp[j] >= 'A' && mstmp[j] <= '?')))
+				if (mstmp2[0] < mstmp[0]) {
+						chtmp2 = ptr[j + 1];
+						chtmp = ptr[j];
+						ptr[j + 1] = chtmp;
+						ptr[j] = chtmp2;
+					}
+			if ((mstmp2[j] >= 'A' && mstmp2[j] <= '?') && !(mstmp[j] >= 'A' && mstmp[j] <= '?'))
+				if (mstmp2[0] < (mstmp[0] - ' ')) {
+						chtmp2 = ptr[j + 1];
+						chtmp = ptr[j];
+						ptr[j + 1] = chtmp;
+						ptr[j] = chtmp2;
+					}
+			if (!(mstmp2[j] >= 'A' && mstmp2[j] <= '?') && (mstmp[j] >= 'A' && mstmp[j] <= '?'))
+				if ((mstmp2[0] - ' ') < mstmp[0]) {
+						chtmp2 = ptr[j + 1];
+						chtmp = ptr[j];
+						ptr[j + 1] = chtmp;
+						ptr[j] = chtmp2;
+					}
 		}
 	}
 	return 1;
