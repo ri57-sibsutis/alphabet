@@ -36,7 +36,11 @@ int stok(char str[], char *ptr[]){
 void crop(char string[], char *fstring){
 	int j = 0, i = 0;
 	while (string[j] != '\0'){
-		if ((string[j] >= 'À' && string[j] <= 'ß') || (string[j] >= 'à' && string[j] <= 'ï') || (string[j] >= 'ð' && string[j] <= 'ÿ') || string[j]==' '){
+		if ((string[j] >= 'À' && string[j] <= 'Á') || (string[j] >= 'à' && string[j] <= 'ï') || (string[j] >= 'ð' && string[j] <= 'ÿ') || string[j]==' '){
+			fstring[i] = string[j];
+			i++;
+		}
+		if ((string[j] >= 'A' && string[j] <= 'Z') || (string[j] >= 'a' && string[j] <= 'z')){
 			fstring[i] = string[j];
 			i++;
 		}
@@ -48,19 +52,25 @@ void crop(char string[], char *fstring){
 void sort(char *ptr[], int size){
 	char *mstmp;
 	char *mstmp2;
-	char A[] = "ÀÁÂÃÄÅ¨ÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞß";//ß-32 áóêâà ïî ìàññèâó
+	char A[] = "ÀÁÂÃÄÅ¨ÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞß";
 	char a[] = "àáâãäå¸æçèéêëìíîïðñòóôõö÷øùúûüýþÿ";
+	char B[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ       ";
+	char b[] = "abcdefghijklmnopqrstuvwxyz       ";
 	int i = 0, j = 0, k = 0;
 	int x = -1, y = -1;
-	for (i = 0; i < (size - 1); ++i){//êîëè÷åñòâî íóæíûõ ïðîõîäîâ ïî ìàññèâó äëÿ íàõîæäåíèÿ
+	for (i = 0; i < (size - 1); ++i){
 		for(j = 0; j < (size - 1); ++j){
 			mstmp = ptr[j];
 			mstmp2 = ptr[j + 1];
 			
-			for(k=0; k < 33; k++){
+			for(k = 0; k < 33; k++){
 				if ((mstmp[0] == A[k]) || (mstmp[0] == a[k]))
 					x = k;
 				if ((mstmp2[0] == A[k]) || (mstmp2[0] == a[k]))
+					y = k;	
+				if ((mstmp[0] == B[k]) || (mstmp[0] == b[k]))
+					x = k;
+				if ((mstmp2[0] == B[k]) || (mstmp2[0] == b[k]))
 					y = k;
 			}
 				if (y < x)
