@@ -1,7 +1,17 @@
-.PHONY: clean prepare functions
+.PHONY: clean prepare functions test
 
 bin/alphabet: obj/main.o obj/functions.o obj/interface.o
-	gcc -o bin/alphabet obj/main.o obj/functions.o obj/interface.o -lm
+	gcc -o bin/alphabet obj/main.o obj/functions.o obj/interface.o
+
+bin/test: obj/functions.o obj/functest.o obj/cmain.o
+	gcc -Wall -o bin/test obj/functions.o obj/functest.o obj/cmain.o
+
+obj/functest.o: test/functest.c
+	gcc -Wall -c test/functest.c -o obj/functest.o -Ithirdparty -Isrc
+
+obj/cmain.o: test/main.c
+	gcc -Wall -c test/main.c -o obj/cmain.o -Ithirdparty
+
 
 obj/main.o: src/main.c
 	gcc -c src/main.c -o obj/main.o
@@ -22,6 +32,9 @@ prepare: bin obj
 
 bin:
 	mkdir bin
+
+test: bin/test
+	bin/test
 
 obj:
 	mkdir obj
