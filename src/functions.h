@@ -8,4 +8,5 @@ void sort(char *ptr[], int size);
 int interact (char string[]);
 void out (char *ptr[], int size);
 void mes(int a, int b);
+int in();
 #endif

@@ -88,3 +88,14 @@ void out (char *ptr[], int size, int a){
 	for (j = 0; j < size; j++)
 		printf("\n%s", ptr[j]);
 }
+
+int in(){
+	int a;
+	printf("Choose your interface language:\nType 1 for English.\nType 2 for Russian.\n");
+	scanf("%d", &a);
+	if ((a != 1) && (a != 2)){
+    		printf("Wrong language input.");
+    		return -1;
+   	}
+	return a;
+}
