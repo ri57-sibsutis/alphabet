@@ -4,23 +4,18 @@
 
 int main()
 {	
-    int size = 0, a = 0;
+    int b = 0, a = 0;
     char string[260];
     char fstring[260];
-       printf("Choose your interface language:\nType 1 for English.\nType 2 for Russian.\n");
-    scanf("%d", &a);
-    if ((a != 1) && (a != 2)){
-    	printf("Wrong language input.");
+    if ((a = in()) == -1)
     	return -1;
-    }
-	size = interact(string, a) + 1;
-	if (size == 0)
+	if ((b = interact(string, a) + 1) == 0)
 		return 0;
-	char *ptr[size];
+	char *ptr[b];
 	crop(string, fstring);
 	stok(fstring, ptr);
-	sort(ptr, size);
-	out(ptr, size, a);
+	sort(ptr, b);
+	out(ptr, b, a);
 	getchar();
 	getchar();
     return 0;
