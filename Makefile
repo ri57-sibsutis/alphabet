@@ -1,4 +1,4 @@
-.PHONY: clean functions
+.PHONY: clean prepare functions
 
 bin/alphabet: obj/main.o obj/functions.o obj/interface.o
 	gcc -o bin/alphabet obj/main.o obj/functions.o obj/interface.o -lm
@@ -17,3 +17,11 @@ clean:
 	
 functions: bin/alphabet 
 	bin/alphabet 
+	
+prepare: bin obj
+
+bin:
+	mkdir bin
+
+obj:
+	mkdir obj
