@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void exchange (char *ptr[], int j){
+void exchange (char *ptr[], int j) {
 	char *chtmp;
 	char *chtmp2;
 	chtmp2 = ptr[j + 1];
@@ -10,7 +10,7 @@ void exchange (char *ptr[], int j){
 	ptr[j] = chtmp2;			
 }
 
-int schr(char str[],char ch){
+int schr(char str[],char ch) {
 	int i;
 	int idx = -1;
 	for(i = 0;(str[i] != '\0') && (str[i] != ch);i++);
@@ -19,7 +19,7 @@ int schr(char str[],char ch){
 	return idx;
 }
 
-int stok(char str[], char *ptr[]){
+int stok(char str[], char *ptr[]) {
 	char *suf = str;
 	ptr[0] = str; 
 	int i, j = 1; 
@@ -33,7 +33,7 @@ int stok(char str[], char *ptr[]){
 	return j;
 }
 
-void crop(char string[], char *fstring){
+void crop(char string[], char *fstring) {
 	int j = 0, i = 0;
 	while (string[j] != '\0'){
 		if ((string[j] >= 'À' && string[j] <= 'Á') || (string[j] >= 'à' && string[j] <= 'ï') || (string[j] >= 'ð' && string[j] <= 'ÿ') || string[j]==' '){
@@ -49,7 +49,7 @@ void crop(char string[], char *fstring){
 	fstring[i] = '\0';
 }
 
-void sort(char *ptr[], int size){
+void sort(char *ptr[], int size) {
 	char *mstmp;
 	char *mstmp2;
 	char A[] = "ÀÁÂÃÄÅ¨ÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞß";

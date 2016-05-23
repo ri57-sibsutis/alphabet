@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <locale.h>
 
-void mes(int a, int b){
+void mes(int a, int b) {
 	setlocale(LC_ALL, "Rus");
 	if (a == 1){
 		if (b == 0)
@@ -38,13 +38,13 @@ void mes(int a, int b){
 	}
 }
 
-int interact (char *string, int a){
+int interact (char *string, int a) {
 	int j = 0, size = 0;
-    char namein[260];
+	char namein[260];
 	mes(a, 0);
 	mes(a, 1);
 	getchar();
-    do{
+	do{
 		if (j > 260)
 			return j;
 		scanf("%c", &namein[j]);
@@ -79,7 +79,7 @@ int interact (char *string, int a){
 	return size;
 }
 
-void out (char *ptr[], int size, int a){
+void out (char *ptr[], int size, int a) {
 	setlocale(LC_ALL, "Rus");
 	int j = 0;
 	mes(a, 5);
@@ -89,7 +89,7 @@ void out (char *ptr[], int size, int a){
 		printf("\n%s", ptr[j]);
 }
 
-int in(){
+int in() {
 	int a;
 	printf("Choose your interface language:\nType 1 for English.\nType 2 for Russian.\n");
 	scanf("%d", &a);
