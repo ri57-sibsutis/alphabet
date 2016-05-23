@@ -130,7 +130,7 @@ CTEST(equation_suite, stok_multiple)
 	//When
 	const int real_1 = tmp2[0];
 	const int exp_1 = 'l';
-	const int exp_2 = 'a';//change
+	const int exp_2 = 'a';
 	const int real_2 = tmp1[0];
 	const int exp_size = 2;
 
