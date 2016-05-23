@@ -147,35 +147,38 @@ CTEST(equation_suite, stok_single)
 	char *ptr[1];
 	stok(string, ptr);
 	char *tmp1 = ptr[0];
+
 	//When
-	
-	const int expct = 'h';
 	const int real = tmp1[0];
 
 	//Then
+	const int expct = 'h';
 	ASSERT_EQUAL(real, expct);
 }
 
 CTEST(equation_suite, sort_eng)
 {
 	//Given
-	char string[]= "b a c";
 	char *ptr[3];
-	stok(string, ptr);
+	ptr[0]="b";
+	ptr[1]="a";
+	ptr[2]="c";
 	sort(ptr, 3);
-	char *tmp1 = ptr[0];
-	char *tmp2 = ptr[1];
-	char *tmp3 = ptr[2];
+	char *tmpa = ptr[0];
+	char *tmpb = ptr[1];
+	char *tmpc = ptr[2];
+
 	//When
-	
-	const int expct_a = 'a';
-	const int real_a = tmp1[0];
-	const int expct_b = 'b';
-	const int real_b = tmp2[0];
-	const int expct_c = 'c';
-	const int real_c = tmp3[0];
+	const int real_a = tmpa[0];
+	const int real_b = tmpb[0];
+	const int real_c = tmpc[0];
+
 
 	//Then
+	const int expct_a = 'a';
+	const int expct_b = 'b';
+	const int expct_c = 'c';
+
 	ASSERT_EQUAL(expct_a, real_a);
 	ASSERT_EQUAL(expct_b, real_b);
 	ASSERT_EQUAL(expct_c, real_c);
