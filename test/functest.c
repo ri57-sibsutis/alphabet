@@ -190,13 +190,16 @@ CTEST(equation_suite, exchange_of_eng_words)
 	exchange(ptr, 0);
 	char *tmp1 = ptr[0];
 	char *tmp2 = ptr[1];
+
 	//When
-	
-	const int real = tmp1[0];
-	const int expct = 'a';
+	const int real_1 = tmp1[0];
+	const int real_2 = tmp2[0];
 
 	//Then
-	ASSERT_EQUAL(expct, real);
+	const int expct_1 = 'a';
+	const int expct_2 = 'l';
+	ASSERT_EQUAL(expct_1, real_1);
+	ASSERT_EQUAL(expct_2, real_2);
 
 }
 
@@ -208,17 +211,18 @@ CTEST(equation_suite, exchange_of_rus_words)
 	ptr[0]="במ";
 	ptr[1]="ÿחü";
 	ptr[2]="ר";
+
+	//When
 	exchange(ptr, 0);
 	char *tmp1 = ptr[1];
 	char *tmp = ptr[0];
-	//When
-	
 	const int real = tmp[0];
-	const int expct = 'ÿ';
 	const int real_1 = tmp1[0];
-	const int expct_1 = 'ב';
 
 	//Then
+	const int expct_1 = 'ב';
+	const int expct = 'ÿ';
+
 	ASSERT_EQUAL(real_1, expct_1);
 	ASSERT_EQUAL(real, expct);
 }
