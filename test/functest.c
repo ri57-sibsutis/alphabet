@@ -164,14 +164,14 @@ CTEST(equation_suite, sort_eng)
 	ptr[1]="a";
 	ptr[2]="c";
 	sort(ptr, 3);
-	char *tmpa = ptr[0];
-	char *tmpb = ptr[1];
-	char *tmpc = ptr[2];
+	char *tmp_a = ptr[0];
+	char *tmp_b = ptr[1];
+	char *tmp_c = ptr[2];
 
 	//When
-	const int real_a = tmpa[0];
-	const int real_b = tmpb[0];
-	const int real_c = tmpc[0];
+	const int real_a = tmp_a[0];
+	const int real_b = tmp_b[0];
+	const int real_c = tmp_c[0];
 
 
 	//Then
@@ -182,6 +182,39 @@ CTEST(equation_suite, sort_eng)
 	ASSERT_EQUAL(expct_a, real_a);
 	ASSERT_EQUAL(expct_b, real_b);
 	ASSERT_EQUAL(expct_c, real_c);
+}
+
+CTEST(equation_suite, sort_rus)
+{
+	setlocale(LC_ALL, "Rus");
+	//Given
+	char *ptr[4];
+	ptr[0]="Á";
+	ptr[1]="à";
+	ptr[2]="Ä";
+	ptr[3]="Ã";
+	sort(ptr, 4);
+	char *tmp1 = ptr[0];
+	char *tmp2 = ptr[1];
+	char *tmp3 = ptr[2];
+	char *tmp4 = ptr[3];
+
+	//When
+	const int real_1 = tmp1[0];
+	const int real_2 = tmp2[0];
+	const int real_3 = tmp3[0];
+	const int real_4 = tmp4[0];
+
+	//Then
+	const int expct_1 = 'à';
+	const int expct_2 = 'Á';
+	const int expct_3 = 'Ã';
+	const int expct_4 = 'Ä';
+
+	ASSERT_EQUAL(expct_1, real_1);
+	ASSERT_EQUAL(expct_2, real_2);
+	ASSERT_EQUAL(expct_3, real_3);
+	ASSERT_EQUAL(expct_4, real_4);
 }
 
 CTEST(equation_suite, exchange_of_eng_words)
