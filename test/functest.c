@@ -6,8 +6,8 @@ CTEST(strings_process, search_of_rus_word)
 {
 	setlocale(LC_ALL, "Rus");
 	//Given
-	char string[] = "...y?nie?";
-	char ch = 'y';
+	char string[] = "...ÿ÷ñìèğ";
+	char ch = 'ÿ';
 	
 	//When
 	const int rv = schr(string, ch);
@@ -24,8 +24,8 @@ CTEST(strings_process, search_of_rus_cap_word)
 {
 	setlocale(LC_ALL, "Rus");
 	//Given
-	char string[8] = "AaaaAAa";
-	char ch = 'A';
+	char string[8] = "ÀàààÀÀà";
+	char ch = 'À';
 	
 	//When
 	int rv = schr(string, ch);
