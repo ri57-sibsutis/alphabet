@@ -36,7 +36,7 @@ int stok(char str[], char *ptr[]) {
 void crop(char string[], char *fstring) {
 	int j = 0, i = 0;
 	while (string[j] != '\0'){
-		if ((string[j] >= 'À' && string[j] <= 'Á') || (string[j] >= 'à' && string[j] <= 'ï') || (string[j] >= 'ð' && string[j] <= 'ÿ') || string[j]==' '){
+		if ((string[j] >= 'À' && string[j] <= 'ß') || (string[j] >= 'à' && string[j] <= 'ï') || (string[j] >= 'ð' && string[j] <= 'ÿ') || string[j]==' '){
 			fstring[i] = string[j];
 			i++;
 		}
